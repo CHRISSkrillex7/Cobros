@@ -1,0 +1,196 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/js/sweetalert2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="~/css/styles.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar-->
+        <div class="border-end bg-white" id="sidebar-wrapper">
+            <div class="sidebar-heading border-bottom bg-light">Biblioteca</div>
+            <div class="list-group list-group-flush">
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Agregar Libros</a>                <a class="list-group-item list-group-item-action list-group-item-light p-3" asp-controller="Administrador" asp-action="RegistroDeAlumnos">Registrar Alumnos</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Préstamo</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Devolución</a>
+            </div>
+        </div>
+        <!-- Page content wrapper-->
+        <div id="page-content-wrapper">
+            <!-- Top navigation-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <div class="container-fluid">
+                    <button class="btn-outline-secondary" id="sidebarToggle">    <i class="fas fa-bars"></i></button>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" asp-controller="Administrador" asp-action="Dashboard">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#!">Link</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Page content-->
+            <div class="container-fluid">
+                <div style="display: flex; align-items: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-dashboard" width="64" height="64" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 13m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                        <path d="M13.45 11.55l2.05 -2.05" />
+                        <path d="M6.4 20a9 9 0 1 1 11.2 0z" />
+                    </svg>
+                    <h1 class="mt-4" style="margin-left: 10px;">Panel de Administrador</h1><br />
+                </div>
+
+
+                <div class="container overflow-hidden">
+                    <div class="row gy-5">
+                        <div class="col-4">
+                            <div class="p-3 border bg-light d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock-hour-4" width="72" height="72" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                                        <path d="M12 12l3 2" />
+                                        <path d="M12 7v5" />
+                                    </svg>
+                                    <h5 class="mt-4 ms-2">Prestamo</h5>
+                                </div>
+                                <p>lorem</p>
+                            </div>
+                        </div>
+                        <!-- Repite el mismo bloque para otros elementos si es necesario -->
+                        <div class="col-4">
+                            <div class="p-3 border bg-light d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="72" height="72" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+                                        <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+                                        <path d="M3 6l0 13" />
+                                        <path d="M12 6l0 13" />
+                                        <path d="M21 6l0 13" />
+                                    </svg>
+                                    <h5 class="mt-4 ms-2">Libros</h5>
+                                </div>
+                                <p>lorem</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="p-3 border bg-light d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users" width="72" height="72" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                                        <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                        <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
+                                    </svg>
+                                    <h5 class="mt-4 ms-2">Estudiantes</h5>
+                                </div>
+                                <p>lorem</p>
+                            </div>
+                        </div>
+                        <!-- Repite el mismo bloque para otros elementos si es necesario -->
+                    </div>
+                </div>
+                <div class="container overflow-hidden">
+                    <div class="row gy-5">
+                        <div class="col-4">
+                            <div class="p-3 border bg-light d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users" width="72" height="72" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                                        <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                        <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
+                                    </svg>
+                                    <h5 class="mt-4 ms-2">Usuario</h5>
+                                </div>
+                                <p>lorem</p>
+                            </div>
+                        </div>
+                        <!-- Repite el mismo bloque para otros elementos si es necesario -->
+                        <div class="col-4">
+                            <div class="p-3 border bg-light d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users" width="72" height="72" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                                        <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                        <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
+                                    </svg>
+                                    <h5 class="mt-4 ms-2">Usuario</h5>
+                                </div>
+                                <p>lorem</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="p-3 border bg-red d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users" width="72" height="72" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                                        <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                        <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
+                                    </svg>
+                                    <h5 class="mt-4 ms-2">Usuario</h5>
+                                </div>
+                                <p>lorem</p>
+                            </div>
+                        </div>
+                        <!-- Repite el mismo bloque para otros elementos si es necesario -->
+                    </div>
+                </div>
+
+               
+
+
+
+               
+                </div><p>Bienvenido, estimado administrador(a) de la Biblioteca. En este panel de control, tienes el control total sobre las operaciones de nuestra biblioteca. Tu capacidad para gestionar la información y los recursos es esencial para mantener nuestra biblioteca en funcionamiento de manera eficiente.</p>
+                <p>A través del menú lateral, puedes realizar las siguientes operaciones:</p>
+                <ul>
+                    <li><strong>Agregar Libros:</strong> Añade nuevos libros a nuestro catálogo, asegurando que los estudiantes tengan acceso a una amplia variedad de recursos académicos.</li>
+                    <li><strong>Registrar Alumnos:</strong> Gestiona la base de datos de estudiantes, lo que facilita el proceso de préstamo y devolución de libros.</li>
+                    <li><strong>Préstamo:</strong> Facilita a los estudiantes y profesores la posibilidad de llevarse libros en préstamo de manera eficiente y con seguimiento adecuado.</li>
+                    <li><strong>Devolución:</strong> Controla el proceso de devolución de libros, asegurando que los recursos estén disponibles para otros usuarios.</li>
+                </ul>
+                <p>Gracias por tu dedicación y compromiso con el enriquecimiento educativo de nuestra comunidad universitaria. Por favor, selecciona una de las opciones del menú lateral para comenzar a administrar la biblioteca.</p>
+
+            </div>
+            <!-- Page content-->
+        </div>
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="~/js/scripts.js"></script>
+</body>
+</html>
+<style>
+    body {
+        padding: 7px; /* Adjust the padding value as needed */
+    }
+    .bg-red{
+        background-color: ;
+    }
+</style>

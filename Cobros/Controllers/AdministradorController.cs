@@ -4,16 +4,16 @@ using System.Diagnostics;
 
 namespace Cobros.Controllers
 {
-    public class HomeController : Controller
+    public class AdministradorController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<AdministradorController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public AdministradorController(ILogger<AdministradorController> logger)
         {
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Dashboard()
         {
             return View();
         }
